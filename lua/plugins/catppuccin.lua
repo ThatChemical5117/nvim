@@ -3,31 +3,26 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		priority = 1000,
-		config=function()
-			require("catppuccin").setup({
-				flavor = "auto",
-				background = {
-					light = "macchiato",
-					dark = "mocha"
-				},
-				term_colors = false,
-				transparent_background = true,
-				default_integrations = true,
-				integrations = {
-					cmp = true,
-					treesitter = true,
-					harpoon = true,
-					markdown = true,
-					mason = true,
-					neogit = true,
-					telescope = {
-						enabled = true,
-					},
-				},
-			})
-
-			vim.cmd.colorscheme "catppuccin"
-
-		end
+		opts = {
+			flavor = "auto",
+			background = {
+				light = "macchiato",
+				dark = "mocha"
+			},
+			term_color = false,
+			transparent_background = true,
+			integrations = {
+				cmp = true,
+				treesitter = true,
+				harpoon = true,
+				makrdown = true,
+				mason = true,
+				neogit = true,
+				telescope = {
+					enabled = true,
+					transparent_background = true
+				}
+			}
+		}
 	}
 }
