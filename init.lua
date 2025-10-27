@@ -9,6 +9,3 @@ require("config.opts")
 
 -- lua/config/statusbar.lua
 require("config.statusbar")
-
--- lsp keymaps + settings
-require("config.lsp")
