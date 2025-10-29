@@ -1,3 +1,4 @@
+-- Define how jdtls should be setup and how it should be started up
 local M = {}
 
 -- Define function setup

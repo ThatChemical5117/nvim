@@ -45,13 +45,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 })
 
 -- Create undo directory if it doesn't exist
-local undodir = vim.fn.expand("~/.vim/undodir")
-if vim.fn.isdirectory(undodir) == 0 then
-  vim.fn.mkdir(undodir, "p")
-end
-
--- Create undo directory if it doesn't exist
-local undodir = vim.fn.expand("~/.vim/undodir")
+local undodir = vim.fn.expand("~/.local/state/nvim/undodir")
 if vim.fn.isdirectory(undodir) == 0 then
   vim.fn.mkdir(undodir, "p")
 end

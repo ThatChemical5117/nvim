@@ -12,7 +12,7 @@ vim.opt.smartcase = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-vim.opt.undodir = vim.fn.expand("~/.config/nvim/undodir")
+vim.opt.undodir = vim.fn.expand("~/.local/state/nvim/undodir")
 vim.opt.autoread = true
 vim.opt.autowrite = false
 
