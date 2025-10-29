@@ -9,3 +9,9 @@ require("config.opts")
 
 -- lua/config/statusbar.lua
 require("config.statusbar")
+
+require("config.autocmd")
+
+require("config.term")
+
+require("config.tabs")
