@@ -7,12 +7,25 @@ Plugins that are used are related to syntax highlighting and LSP configuration. 
 ### Getting started
 
 Simple clone this repository where your neovim configuration would live
-Either in your home directory under .nvim or in .config/nvim
+Either in `$HOME/.nvim` or `$CONFIG_HOME/nvim`
 
-Then open neovim and Lazy will pull all necessary plugins and this configuration works out of the box
+Then open neovim, Lazy will bootstrap and pull all plugins
 
+### Plugins
 
-### Usage
+This configuration primarily features plugins to help with navigation and LSP configuration
 
-Here is a quick reference to the keybindings made for Neovim
+- Catppuccin: Theme
+- inlay-hints: function hints
+- mason: manager LSP servers
+- lspconfig: quick enable LSP servers
+- nvim-cmp: completion for LSP
+- vim-test: run tests
+- vim-tmux-navigator: integration with tmux
+- treesitter: better code highlighting
+- telescope: navigation and other
+- jdtls.nvim: For better java LSP options
 
+### Config
+
+Auto command, Keymaps, options, status bar, tabs, and terminal are all configured naively in Lua 
