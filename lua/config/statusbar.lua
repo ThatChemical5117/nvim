@@ -92,25 +92,6 @@ local function StatuslineGit()
 	return statuslineoutput
 end
 
--- returns the file path of the current buffer 
-local function filepath()
-  local fpath = vim.fn.fnamemodify(vim.fn.expand "%", ":~:.:h")
-  if fpath == "" or fpath == "." then
-      return " "
-  end
-
-  return string.format(" %%<%s/", fpath)
-end
-
--- returns the file name of the current buffer
-local function filename()
-  local fname = vim.fn.expand "%:t"
-  if fname == "" then
-      return ""
-  end
-  return fname .. " "
-end
-
 -- gets the line info for the current buffer
 local function lineinfo()
   if vim.bo.filetype == "alpha" then
@@ -172,8 +153,7 @@ Statusline.active = function()
 	mode(),
 	"%#LineNr#",
 	"%#CursorColumn#",
-	filepath(),
-	filename(),
+	" %f",
 	"%m",
     lsp(),
 	"%=",
@@ -192,8 +172,7 @@ end
 function Statusline.inactive()
 	return table.concat{
 		"%#LineNr#",
-		filepath(),
-		filename(),
+		" %f",
 		"%m",
 		"%=",
 		StatuslineGit(),
@@ -217,6 +196,3 @@ vim.api.nvim_exec([[
   au WinEnter,BufEnter,FileType NvimTree setlocal statusline=%!v:lua.Statusline.short()
   augroup END
 ]], false)
-
-
-

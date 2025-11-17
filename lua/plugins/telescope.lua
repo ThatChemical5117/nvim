@@ -4,7 +4,8 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
-			"nvim-tree/nvim-web-devicons"
+			"nvim-tree/nvim-web-devicons",
+			"BurntSushi/ripgrep",
 		},
 		opts = {
 			extension = {

@@ -8,7 +8,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = {buffer = ev.buf, silent = true, remap = false}
 
 		opts.desc = "Show LSP references"
-		keymap.set("n", "<leader>vrr", "<cmd>Telescope lso_references<CR>", opts)
+		keymap.set("n", "<leader>vrr", "<cmd>Telescope lsp_references<CR>", opts)
 
 		opts.desc = "Go to declaration"
 		keymap.set("n", "<leader>vgd", vim.lsp.buf.declaration, opts)
@@ -31,9 +31,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		opts.desc = "rename function"
 		vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts )
 
-		opts.desc = "Show buffer diagnostics"
-		keymap.set("n", "<leader>vbd", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
-
 		-- open diagnostic 
 		opts.desc = "Open Diagnostic"
 		keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -42,10 +39,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Hover
 		opts.desc = "Hover"
 		keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-
-		-- go to workspace symbol
-		opts.desc = "Workspace symbol"
-		keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
 
 			-- move to diagnostic next
 		opts.desc = "goto next diagnostic"

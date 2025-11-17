@@ -30,6 +30,7 @@ vim.opt.smartindent = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = 'nosplit'
 vim.opt.conceallevel = 2
+vim.opt.pumheight = 10
 
 -- GUI options
 vim.g.have_nerd_font = true
@@ -54,4 +55,3 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
 
 vim.opt.splitright = true
-

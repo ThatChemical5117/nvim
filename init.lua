@@ -1,4 +1,3 @@
--- lua/config/lazy.lua
 require("config.lazy")
 
 -- keymaps
@@ -15,3 +14,5 @@ require("config.autocmd")
 require("config.term")
 
 require("config.tabs")
+
+require("config.lsp")

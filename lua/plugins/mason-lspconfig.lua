@@ -1,6 +1,7 @@
 return {
 	{
 		"williamboman/mason-lspconfig.nvim",
+		event = "LspAttach",
 		opts = {
 			ensure_installed = {"lua_ls", "clangd", "jdtls"},
 			automatic_enable = {
