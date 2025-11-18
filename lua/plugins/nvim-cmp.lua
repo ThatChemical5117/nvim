@@ -2,36 +2,67 @@ return {
 	{
 		'hrsh7th/nvim-cmp',
 		dependencies= {
+			'saadparwaiz1/cmp_luasnip',
+			{
+				'L3MON4D3/LuaSnip',
+				version = "v2.*",
+				build = "make install_jsregexp"
+			},
+			'rafamadriz/friendly-snippets',
 			'hrsh7th/cmp-nvim-lsp',
 			'hrsh7th/cmp-buffer',
 			'hrsh7th/cmp-path',
-			'saadparwaiz1/cmp_luasnip',
 			'hrsh7th/cmp-nvim-lua',
-			'L3MON4D3/LuaSnip',
-			'rafamadriz/friendly-snippets',
+			'hrsh7th/cmp-nvim-lsp-signature-help'
 		},
 		event = "LspAttach",
 		config=function()
 			local cmp = require('cmp')
+			local luasnip = require('luasnip')
 			local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
 			require('luasnip.loaders.from_vscode').lazy_load()
 
 			cmp.setup({
 				sources = {
-					{ name = 'path' },
-					{ name = 'nvim_lsp'},
-					{ name = 'nvim_lua'},
-					{ name = 'luasnip', keyword_length = 3},
-					{ name = 'buffer', keyword_length = 6},
+					{ name = "luasnip",},
+					{ name = "nvim_lsp"},
+					{ name = "buffer"},
+					{ name = "path" },
+					{ name = "nvim_lsp_signature_help" }
 				},
 				mapping = cmp.mapping.preset.insert({
 					['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
 					['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
-					['<C-y>'] = cmp.mapping.confirm({select = true}),
+					['<C-b>'] = cmp.mapping.scroll_docs(-4),
+					['<C-f>'] = cmp.mapping.scroll_docs(4),
 					['<C-space>'] = cmp.mapping.complete(),
 					['<C-e>'] = cmp.mapping.abort(),
-					["<CR>"] = cmp.mapping.confirm({ select = false })
+
+					-- Only select when user wants to 
+					['<CR>'] = cmp.mapping({ i = function(fallback)
+						if cmp.visible() and cmp.get_active_entry() then
+							cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+						else
+							fallback()
+						end
+					end, s = cmp.mapping.confirm({ select = true }), c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }), }),
+
+					-- Super tab mappings
+					['<Tab>'] = cmp.mapping(function(fallback)
+						if luasnip.locally_jumpable(1) then
+							luasnip.jump(1)
+						else
+							fallback()
+						end
+					end, { "i", "s" }),
+					['<S-Tab'] = cmp.mapping(function(fallback)
+						if luasnip.locally_jumpable(-1) then
+							luasnip.jump(-1)
+						else
+							fallback()
+						end
+					end, { "i", "s" })
 				}),
 				snippet = {
 					expand = function(args)

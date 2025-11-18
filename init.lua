@@ -15,4 +15,3 @@ require("config.term")
 
 require("config.tabs")
 
-require("config.jdtls")
