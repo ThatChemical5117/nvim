@@ -56,14 +56,6 @@ vim.opt.foldlevel = 99
 
 vim.opt.splitright = true
 
---LSP server enable
-vim.lsp.config("jdtls", {
-	settings = {
-		java ={
-			'-data', '~/.local/share/nvim/eclipse-jdtls/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-		}
-	}
-})
 
 vim.lsp.enable("jdtls")
 

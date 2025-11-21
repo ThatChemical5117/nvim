@@ -51,3 +51,5 @@ vim.keymap.set('n', '<leader>pa', function()
 	vim.fn.setreg("+", path)
 	print("file:", path)
 end)
+
+
