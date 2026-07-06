@@ -1,10 +1,10 @@
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear highlight search" })
 
 -- Center screen when jumping
-vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "Jump down"})
-vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "Jump up"})
 vim.keymap.set("n", "n", "nzzzv", { desc = "Center when finding next"} )
 vim.keymap.set("n", "N", "Nzzzv", { desc = "Center when finding previous" })
+
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape" })
 
 -- copy + paste
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Copy to clipboard" })

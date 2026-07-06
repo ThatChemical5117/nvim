@@ -1,6 +1,4 @@
 -- Enable lsp
-vim.lsp.enable("lua_ls");
-vim.lsp.enable("clangd");
 
 vim.lsp.config("jdtls", {
 	root_dir = vim.fs.root(0, {
@@ -21,4 +19,3 @@ vim.lsp.config("jdtls", {
 })
 
 vim.lsp.enable("jdtls")
-
